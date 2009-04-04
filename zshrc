@@ -6,7 +6,7 @@ setopt extendedglob
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-#zstyle :compinstall filename 'zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -44,3 +44,5 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
+
+export EDITOR=vim
