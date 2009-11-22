@@ -11,13 +11,17 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+setopt promptsubst
 autoload -U promptinit
 promptinit
-prompt walters
+#prompt walters
+prompt wunjo
 
 # Aliases
 alias ls="ls --color=auto -F"
 alias nscreen="rm -f ~/.screenrc ; ln -s ~/.normal_screenrc ~/.screenrc ; (sleep 3 && rm -f ~/.screenrc && ln -s ~/.basic_screenrc ~/.screenrc) & screen -S normal"
+
+export EDITOR=vim
 
 # key bindings
 bindkey "\e[1~" beginning-of-line
@@ -45,4 +49,4 @@ bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
-export EDITOR=vim
+set -o vi

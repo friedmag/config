@@ -3,3 +3,8 @@
 	email = friedmagb@gmail.com
 [color]
   ui = auto
+[alias]
+	br = branch
+	co = checkout
+	dc = diff --cached
+	st = status

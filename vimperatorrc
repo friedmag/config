@@ -1,14 +1,21 @@
-" 1.2 (created: 2008/08/16 18:51:52)
-" Mappings
+"2.1 (created: 2009/05/21 13:13:06)
+
 map ,e :tabnext<CR>
 map ,q :tabprev<CR>
 map J :jumps<CR>
-
-" Options
+map <C-`> <C-6>
+nmap ,e :tabnext<CR>
+nmap ,q :tabprev<CR>
+nmap J :jumps<CR>
+nmap <C-`> <C-6>
 set hlsearch
+set runtimepath=/home/chris/.vimperator
+vmap ,e :tabnext<CR>
+vmap ,q :tabprev<CR>
+vmap J :jumps<CR>
+vmap <C-`> <C-6>
+source! /home/chris/.vimperatorrc.local
 
-" Abbreviations
-
-source! ~/.vimperatorrc.local
+javascript liberator.beep = function() { return false; }
 
 " vim: set ft=vimperator:
