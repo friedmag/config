@@ -1,1 +1,2 @@
-#todo
+set mouse=
+set ttymouse=
