@@ -1,7 +1,14 @@
 #!/bin/bash
 
+first=true
 i3status $* | while true; do
 	read line
-	echo "$(brightnessctl i | grep Current | sed -E 's,^.*\((.*)\)$,\1,')b" >~/.brightness
-	echo -e "$(cat ~/.brightness) | $line" || exit 1
+	if ! echo $line | grep -q '\[{"name"'; then echo $line; continue; fi
+	(echo $line | grep -vq '^,') || line=${line#*,}
+	brightness="$(brightnessctl i | grep Current | sed -E 's,^.*\((.*)\)$,\1,')b"
+
+	$first || echo -n ,
+	first=false
+
+	echo $line | jq -cM "[{\"name\":\"brightness\",\"instance\":\"0\",\"color\":\"#FF0000\",\"markup\":\"none\",\"full_text\":\"${brightness}\"}, .[]]"
 done
